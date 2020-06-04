@@ -1,11 +1,11 @@
 import { IsString } from 'class-validator';
 
-export class AddColumnForm {
+export class SaveUserForm {
 
     @IsString()
-    rowId: string;
+    name: string;
 
     @IsString()
-    description: string;
+    email: string;
 
 }
