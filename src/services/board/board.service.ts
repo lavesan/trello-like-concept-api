@@ -120,7 +120,7 @@ export class BoardService {
 
     async deleteColumn({ columnId, rowId }: DeleteColumnForm) {
 
-        await this.boardModel.updateOne({}, { $pull: { 'rows.$.columns': columnId }}, { multi: true }).exec();
+        await this.boardModel.updateOne({}, { $pull: { 'rows.$[].columns': { _id: columnId } }}).exec();
 
         return this.reorderColumns(rowId);
 
